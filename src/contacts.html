@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Главная страница</title>
+    <title>Контакты</title>
     <link rel="stylesheet" href="/src/assets/styles/style.css">
 </head>
 <body>
@@ -28,17 +28,39 @@
         </nav>
     </header>
 
-    <h1 class="h1-title">Meteora</h1>
-    <p class="text">Второй альбом группы Linkin Park.</p>
+    <h2 class="h2-title">Contact Us</h2>
+    <p class="text">Тюменский Государственный Университет.</p>
 
-    <h3 class="h3-title">История создания</h3>
-    <h4 class="h4-title">Путешествие в Грецию</h4>
-    <p class="text">Название придумали после путшествия в Грецию.</p>
+    <img src="C:\Users\2302i\OneDrive\Рабочий%20стол\2.png" alt="Произвольное изображение" style="max-width: 350px;" /> 
 
-    <h3 class="h3-title">Парящие в небе</h3>
-    <p class="text">С греческого языка, Метеоры — переводится как «парящие в небе».</p>
+    <h4 class="h4-title">Address</h4>
+    <p class="text">г.Тюмень ул.Перекопская 15а.</p>
 
-    <hr /> <!-- Разделительная линия -->
+    <h4 class="h4-title">Phone</h4>
+    <ul>
+        <li>+799851235</li>
+        <li>+792251764</li>
+    </ul>
+
+    <h4 class="h4-title">Online service</h4> 
+    <ul>
+        <li><a href="http://www.utmn.ru">utmn.ru</a></li> 
+        <li><a href="utmn@study.ru">utmn@study.ru</a></li> 
+    </ul>
+
+    <h4 class="h4-title">Send us message</h4>
+    <form class="contact-form">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" class="input-field"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="input-field"><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" class="input-field"></textarea><br>
+
+        <input type="submit" value="Submit" class="submit-button">
+    </form>
 
     <!-- Подвал сайта -->
     <footer>
@@ -54,6 +76,6 @@
 
         <p class="text">Все права защищены.</p>
     </footer>
-    
+
 </body>
 </html>

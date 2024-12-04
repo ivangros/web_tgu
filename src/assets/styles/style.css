@@ -9,3 +9,57 @@
 .test {
     color: red !important;
 }
+
+/* Стили для хлебных крошек */
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #e0f1f1, #88b0a0);
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb li {
+    position: relative;
+    padding: 10px 20px;
+    background: #e0f1f1;
+    margin-right: -5px;
+    border-radius: 20px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb li:last-child {
+    margin-right: 0;
+}
+
+.breadcrumb li a {
+    text-decoration: none;
+    color: #004d40;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.breadcrumb li a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, #e0f1f1, #88b0a0);
+    z-index: -1;
+    border-radius: 20px;
+}
