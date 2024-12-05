@@ -1,60 +1,114 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Главная страница</title>
-    <link rel="stylesheet" href="/src/assets/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3</title>
+    <style>
+        hr {
+            margin: 20px 0;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Хлебные крошки -->
-    <div class="breadcrumb">
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-    </div>
-
-    <!-- Шапка сайта -->
-    <header>
-        <img src="1.avif" alt="Логотип" width="200" height="auto"/>
-        <nav>
-            <!--<ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>-->
+    <!-- Header Section -->
+    <header class="header">
+        <h1 class="header__title">IT Website</h1>
+        <nav class="header__nav">
+            <ul>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#">Cases</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
         </nav>
+        <p class="header__contact">+7 (777) 555-55-55 | info@example.com</p>
     </header>
+    <hr />
 
-    <h1 class="h1-title">Meteora</h1>
-    <p class="text">Второй альбом группы Linkin Park.</p>
+    <!-- Intro Section -->
+    <section class="intro">
+        <h2 class="intro__title">Development of mobile applications and web services</h2>
+        <p class="intro__text">We create mobile applications for iOS, Android, and transform your business into a modern online service.</p>
+        <form class="intro__form">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone">
+            <button type="submit">Get Consultation</button>
+        </form>
+    </section>
+    <hr />
 
-    <h3 class="h3-title">История создания</h3>
-    <h4 class="h4-title">Путешествие в Грецию</h4>
-    <p class="text">Название придумали после путшествия в Грецию.</p>
-
-    <h3 class="h3-title">Парящие в небе</h3>
-    <p class="text">С греческого языка, Метеоры — переводится как «парящие в небе».</p>
-
-    <hr /> <!-- Разделительная линия -->
-
-    <!-- Подвал сайта -->
-    <footer>
-        <h3 class="h3-title">Создатель</h3>
-        <p class="text">Страницу создал студент ТюмГУ</p>
-        <hr /> <!-- Разделительная линия -->
-
-        <ul>
-            <li>Мои контакты</li>
-            <li>+89995491898</li> 
-            <li>rad.ner.@mail.ru</li> 
+    <!-- Full Development Cycle Section -->
+    <section class="development-cycle">
+        <h2 class="development-cycle__title">Full Development Cycle</h2>
+        <ul class="development-cycle__list">
+            <li>Web</li>
+            <li>Mobile</li>
+            <li>UI/UX Design</li>
         </ul>
+    </section>
+    <hr />
 
-        <p class="text">Все права защищены.</p>
+    <!-- Industries Section -->
+    <section class="industries">
+        <h2 class="industries__title">Developed more than 100 projects in 15 industries</h2>
+        <ul class="industries__list">
+            <li>Social Media</li>
+            <li>Education</li>
+            <li>Online Stores</li>
+        </ul>
+    </section>
+    <hr />
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <h2 class="projects__title">Projects We Are Proud Of</h2>
+        <article class="projects__item">
+            <h3 class="projects__item-title">I-teka</h3>
+            <p class="projects__item-description">The application is designed to search for drugs in nearby pharmacies.</p>
+            <img src="iteka-example.jpg" alt="I-teka Project">
+        </article>
+    </section>
+    <hr />
+
+    <!-- Development Stages Section -->
+    <section class="development-stages">
+        <h2 class="development-stages__title">Application Development Stages</h2>
+        <ul class="development-stages__list">
+            <li>Analysis</li>
+            <li>Design</li>
+            <li>Development</li>
+            <li>Testing</li>
+            <li>Launching</li>
+            <li>Support</li>
+        </ul>
+    </section>
+    <hr />
+
+    <!-- Team Section -->
+    <section class="team">
+        <h2 class="team__title">Our Team</h2>
+        <p class="team__info">28 team members | 100+ projects | 7 years of experience</p>
+    </section>
+    <hr />
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2 class="faq__title">FAQ</h2>
+        <ul class="faq__list">
+            <li>What is the cost of a mobile application?</li>
+            <li>How long will development take?</li>
+        </ul>
+    </section>
+    <hr />
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p class="footer__text">IT Website | +7 (777) 999-99-99 | info@example.com</p>
     </footer>
-    
+
 </body>
 </html>
