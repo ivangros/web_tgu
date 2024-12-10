@@ -2,64 +2,234 @@
 @import "./fonts.css";
 @import "./utils.css";
 
-.test {
-    color: yellow !important;
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
-.test {
-    color: red !important;
+body{
+    font-family: Arial, sans-serif;
+    background: rgba(242, 244, 247, 1);
+    background-image: url("../img/main.png");
+    background-size: 55% auto;
+    background-position: right top; 
+    background-repeat: no-repeat;
 }
 
-/* Стили хлебных крошек */
-.breadcrumb {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #e0f1f1, #88b0a0);
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 5px 15px rgba(0, 0, 0, 0.1);
+.container {
+    max-width: 1224px;
+    margin: 0 auto;
 }
 
-.breadcrumb ul {
-    display: flex;
+header{
+    position: sticky;
+    top: 20px;
+    width: 1124px;
+    height: 56px;
+    margin: auto;
+    padding: 16px 24px 16px 24px;
+    border-radius: 12px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+}
+
+h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h2{
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+button{
+    background: rgba(45, 102, 238, 1);
+    padding: 11px 24px 11px 24px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+}
+
+header h3{
+    color: rgba(45, 102, 238, 1);
+}
+
+.nav{
+    margin: 0 20px; 
     list-style: none;
-    margin: 0;
     padding: 0;
 }
-
-.breadcrumb li {
-    position: relative;
-    padding: 10px 20px;
-    background: #e0f1f1;
-    margin-right: -5px;
-    border-radius: 20px;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+  
+.nav li {
+    display: inline-block;
+    margin-right: 20px;
+    color: rgba(16, 24, 40, 1);
+    font-weight: 500;
+    font-size: 14px;
 }
 
-.breadcrumb li:last-child {
-    margin-right: 0;
-}
-
-.breadcrumb li a {
+.nav a, 
+.contact a{
     text-decoration: none;
-    color: #004d40;
-    font-weight: bold;
-    font-size: 16px;
 }
 
-.breadcrumb li a:hover {
-    text-decoration: underline;
+.nav a{
+    color: rgba(16, 24, 40, 1);
+    font-weight: 500;
 }
 
-.breadcrumb li::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -10px;
-    width: 20px;
-    height: 100%;
-    background: linear-gradient(to right, #e0f1f1, #88b0a0);
-    z-index: -1;
-    border-radius: 20px;
+.headImg, 
+.footerImage{
+    margin-right: 5px;
+}
+  
+.contact{
+    display: flex;
+    flex-direction: row;
+}
+
+.contact p{
+    margin-right: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(45, 102, 238, 1);
+    line-height: 24px;
+}
+
+.contact a{
+    color: rgba(45, 102, 238, 1);
+}
+
+.mainBlock{
+    width: 100%;
+    height: 790px;
+    padding: 60px 100px 0px 100px;
+}
+
+.blueText{
+    color:rgba(45, 102, 238, 1);  
+}
+
+.mainBlockDescription{
+    width: 600px;
+    height: 220px;
+    margin-top: 40px;
+}
+
+.mainBlockDescription p {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.contactForm{
+    width: 676px;
+    height: 186px;
+    padding: 24px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.16);
+    margin-top: 40px;
+}
+
+.contactForm p{
+    width: 450px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.InputForm form{
+    width: 628px;
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-end;
+    margin-top: 32px;
+}
+
+.contactForm label{
+    font-size: 13px;
+    display: block; 
+    margin-bottom: 5px; 
+    color: rgba(102, 112, 133, 1);
+
+}
+
+.contactForm input{
+    font-size: 17px;
+    border: 0.7px solid rgba(208, 213, 221, 1);
+    border-style: none none solid none;
+    
+}
+
+.contactForm input::placeholder {
+    color: rgba(16, 24, 40, 1);
+}
+  
+  
+.InputFormGroup {
+    margin-right: 20px; 
+}
+  
+.contactForm button{
+    width: 132px;
+    height: 58px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+footer {
+    background: rgba(16, 24, 40, 1);
+    padding: 20px 0; 
+    color: white;
+    text-align: center;
+    width: 1224px;
+    margin: auto;
+    border-radius: 12px;
+    height: 222px;
+}
+
+.footerSection{
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+
+}
+
+.contact {
+    margin-bottom: 5px;
+}
+  
+.contactFooter p{
+    font-size: 17px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.contactFooterBlock{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contactFooterBlock p{
+    font-size: 14px;
+    color: rgba(152, 162, 179, 1);
+}
+
+.footerSectionBlock{
+    width: 190px;
+    margin:auto;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

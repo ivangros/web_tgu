@@ -1,144 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 3</title>
-    <style>
-        hr {
-            margin: 10px 0;
-            border: 1px solid #010101;
-        }
-    </style>
+    <title> Главная страница </title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
 </head>
 <body>
-
-    <!--Секция заголовка -->
-    <header class="header">
-        <h1 class="header_title">IT Website</h1>
-        <nav class="header_nav">
-            <ul>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Media</a></li>
+    <header>
+          <h3>IT WEBSITE</h3>
+          <nav>
+            <ul class="nav">
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Mobile</a></li>
                 <li><a href="#">Cases</a></li>
                 <li><a href="#">FAQ</a></li>
                 <li><a href="#">Contacts</a></li>
             </ul>
-        </nav>
-        <p class="header_contact">+7 (111) 111-11-11 | itcompany@mail.com</p>
-    </header>
-    <hr />
+            </nav>
+          <div class="contact">
+            <img class="headImg" src = "assets/icons/head_phone.png">
+            <p>+7 (707) 254 81 47</p>
+            <p>+7 (778) 395 90 26</p>
+            <img class="headImg" src = "assets/icons/head_mail.png">
+            <p><a href="mailto:thousanditcompany@gmail.com">thousanditcompany@gmail.com</a></p>
+          </div>
+      </header>
 
-    <!-- Секция короткой инфы о комании и форма -->
-    <section class="info">
-        <h2 class="info_title">Development of mobile applications and web services of any complexity</h2>
-        <p class="info_text">We create mobile applications for iOS, Android, and transform your business into a modern online service.</p>
-        <form class="info_form">
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <button type="submit">Get Consultation</button>
-        </form>
-    </section>
-    <hr />
+    <main class = "mainBlock">
+        <div class = "mainBlockDescription">
+            <h2>Development of <span class = "blueText">mobile applications</span> and <span class = "blueText">web services</span> of any complexity</h2>
+            <p>We create mobile applications for iOS, Android that transfer your business to mobile applications of your customers' devices</p>
+        </div>
+        <div class = "contactForm">
+            <p>Leave your contacts and we will call you back within 30 minutes</p>
+            <div class = "InputForm">
+                <form>
+                    <div class = "InputFormGroup">
+                        <label for="phone"> Phone number </label>
+                        <input type = "text"  id="phone" placeholder="+7 (702) 517-11-98">
+                    </div>
+                    <div class = "InputFormGroup">
+                        <label for="fullname">Full name</label>
+                        <input type = "text" id="fullname" placeholder="Агадиль">
+                    </div>
+                    <button type = "submit">Get consultation</button>
 
-    <!-- Full Development Cycle секция -->
-    <section class="development_cycle">
-        <h2 class="development_cycle_title">Full Development Cycle</h2>
-        <ul class="development_cycle_list">
-            <li>Web</li>
-            <li>Mobile</li>
-            <li>IOS development</li>
-        </ul>
-    </section>
-    <hr />
-
-    <!-- Секция всех проектов -->
-    <section class="projects">
-        <h2 class="projects_title">Developed more than 100 projects in 15 industries</h2>
-        <ul class="projects_list">
-            <li>Social Media</li>
-            <li>Fitness and sport</li>
-            <li>Bank</li>
-        </ul>
-    </section>
-    <hr />
-
-    <!-- Секция лучших проектов -->
-    <section class="best_projects">
-        <h2 class="best_projects_title">Projects We Are Proud Of</h2>
-        <article class="best_projects_item">
-            <h3 class="best_projects_item-title">I-teka</h3>
-            <p class="best_projects_item-description">The application is designed to search for drugs in nearby pharmacies in cities.</p>
-        </article>
-    </section>
-    <hr />
-
-    <!-- Секция обсуждения твоего проекта -->
-    <section class="discussion">
-        <h2 class="discussion_title">Let's discuss Your project</h2>
-        <p class="discussion_text">Let's figure out how to create an effective application</p>
-        <form class="discussion_form">
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <button type="submit">Discuss the project</button>
-        </form>
-    </section>
-    <hr />
-
-    <!-- Секция стадий разработки -->
-    <section class="development-stages">
-        <h2 class="development-stages_title">Application Development Stages</h2>
-        <ul class="development-stages_list">
-            <li>Analysis</li>
-            <li>Design</li>
-            <li>Development</li>
-            <li>Testing</li>
-            <li>Launching</li>
-            <li>Support</li>
-        </ul>
-    </section>
-    <hr />
-
-    <!-- Секция команды -->
-    <section class="team">
-        <h2 class="team_title">Our Team</h2>
-        <p class="team_text">Thousand is full-cycle digital production company</p>
-        <p class="team_info">28 team members | 100+ projects | 7 years of experience</p>
-        <p class="team_text">All the necessary specialists</p>
-    </section>
-    <hr />
-
-    <!-- Секция получения книги -->
-    <section class="book">
-        <h2 class="book_title">Get the book for free</h2>
-        <form class="discussion_form">
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <button type="submit">Send me ebook</button>
-        </form>
-    </section>
-    <hr />
-
-    <!-- Секция FAQ  -->
-    <section class="faq">
-        <h2 class="faq_title">FAQ</h2>
-        <ul class="faq_list">
-            <li>What is the cost of a mobile application?</li>
-            <li>How long will development take?</li>
-        </ul>
-    </section>
-    <hr />
-
-    <!-- Footer секция -->
-    <footer class="footer">
-        <p class="footer_text">IT Website | +7 (778) 395-90-26 | mail@mail.com | City city, street</p>
-    </footer>
-
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h2>IT WEBSITE</h2>
+        <div class="footerSection">
+            <div class="contactFooter">
+                <div class = "contactFooterBlock">
+                    <img class="footerImage" src="assets/icons/smartphone_outline_24.png" alt="">
+                    <p> Contact nums</p>
+                </div>
+                <p>+7 (778) 395 90 26</p>
+            </div>
+            <div class="contactFooter">
+                <div class = "contactFooterBlock">
+                    <img class="footerImage" src="assets/icons/mail_outline_24.png" alt="">
+                    <p>Post</p>
+                </div>
+                <p>mail@mail.com</p>
+            </div>
+            <div class="contactFooter">
+                <div class = "contactFooterBlock">
+                    <img class="footerImage" src="assets/icons/place_outline_24.png" alt="">
+                    <p>Adress</p>
+                </div>
+                <p>City city, steet st. 90</p>
+            </div>
+            <div class="contactFooter">
+                <div class = "contactFooterBlock">
+                    <img class="footerImage" src="assets/icons/document_outline_24.png" alt="">
+                    <p>Leave a request</p>
+                </div>
+                <p>Leave a request</p>
+            </div>
+        </div>
+        <div class = "footerSectionBlock">
+            <img class="footerImage" src="assets/icons/Vector.png" alt="">
+            <p>We work throughout world</p>
+        </div>
+    </footer>   
 </body>
 </html>
