@@ -65,7 +65,7 @@
                         <use href="#burger" alt="burger-icon"></use>
                     </svg>
                     <div class="header_menu-content">
-                        <div class="header_menu-wrap">
+                        <div class="header_menu-wrapper">
                             <div class="header_menu-close-wrapper">
                                 <div class="header_menu-close">
                                     <svg>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="header_menu-blocks">
                                 <a class="header_menu-title" href="#">It-website</a>
-                                <div class="header_menu_links">
+                                <div class="header_menu-links">
                                     <a class="header_menu-link" href="#">Services</a>
                                     <a class="header_menu-link" href="#">Media</a>
                                     <a class="header_menu-link" href="#">Cases</a>
@@ -87,7 +87,7 @@
                                         <svg>
                                             <use href="#phone" alt="phone-icon"></use>
                                         </svg>
-                                        <div class="header_menu-contact-cont">
+                                        <div class="header_menu-contact-content">
                                             <a href="tel:+71111111111">+7 (111) 111 11 11</a>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                                         <svg>
                                             <use href="#phone" alt="phone-icon"></use>
                                         </svg>
-                                        <div class="header_menu-contact-cont">
+                                        <div class="header_menu-contact-content">
                                             <a href="tel:+71111111111">+7 (111) 111 11 11</a>
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                         <svg>
                                             <use href="#mail" alt="mail-icon"></use>
                                         </svg>
-                                        <div class="header_menu-contact-cont">
+                                        <div class="header_menu-contact-content">
                                             <a href="mailto:itcompany@mail.com" class="header_contact-content">itcompany@mail.com</a>
                                         </div>
                                     </div>
@@ -155,42 +155,51 @@
                 <div class="main_block-subtitle">
                     Leave your contacts and we will call you back within 30 minutes
                 </div>
-                <form class="mainblock_form">
-                    <div class="mainblock_form-content">
+                <form class="form_welcome">
+                    <div class="form_welcome-content">
                         <label for="phone">Phone number</label>
                         <input id="phone" type="tel" value="+7 (111) 111-11-11" placeholder="+7 (123) 456-78-90"></input>
                     </div>
-                    <div class="mainblock_form-content">
+                    <div class="form_welcome-content">
                         <label for="name">Full name</label>
                         <input id="name" type="text" value="Иван Иванов" placeholder="Name Surname"></input>
                     </div>
                     <button type="submit">Get consultation</button>
                 </form>
             </article>
-            <div class="main_block-picture">
-                <img src="assets/img/screens.png" alt="screens">
+            <div class="main_block-background">
+                <div class="main_block-background-wrapper">
+                    <div class="background_image image-left">
+                        <img src="assets/img/column-left.webp" alt="Left Column">
+                        <img src="assets/img/column-left.webp" alt="Left Column Duplicate">
+                    </div>
+                    <div class="background_image image-right">
+                        <img src="assets/img/column-right.webp" alt="Right Column">
+                        <img src="assets/img/column-right.webp" alt="Right Column Duplicate">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="block__fulldevcycle">
-            <div class="block__fulldevcycle-leftblock">
-                <div class="block__fulldevcycle-content">
-                    <div class="block__fulldevcycle-title">Full development cycle</div>
-                    <div class="block__fulldevcycle-text">We use proven technologies</div>
+        <section class="full_dev_block">
+            <div class="full_dev_block-leftblock">
+                <div class="full_dev_block-content">
+                    <div class="full_dev_block-title">Full development cycle</div>
+                    <div class="full_dev_block-text">We use proven technologies</div>
                 </div>
-                <div class="block__fulldevcycle-content">
-                    <article class="block__fulldevcycle-tech">
-                        <div class="block__fulldevcycle-subtitle">Web</div>
-                        <div class="block__fulldevcycle-enum">
+                <div class="full_dev_block-content">
+                    <article class="full_dev_block-tech">
+                        <div class="full_dev_block-subtitle">Web</div>
+                        <div class="full_dev_block-enum">
                             PHP <span>/</span> Javascript <span>/</span> Node.JS <span>/</span> 
                             Web Socket <span>/</span> Socket.io <span>/</span> Vue.js <span>/</span> 
                             Nuxt <span>/</span> MySQL <span>/</span> Laravel <span>/</span> 
                             GO lang <span>/</span> django <span>/</span> Python
                         </div>
                     </article>
-                    <article class="block__fulldevcycle-tech">
-                        <div class="block__fulldevcycle-subtitle">Mobile</div>
-                        <div class="block__fulldevcycle-enum">
+                    <article class="full_dev_block-tech">
+                        <div class="full_dev_block-subtitle">Mobile</div>
+                        <div class="full_dev_block-enum">
                             Swift <span>/</span> Kotlin <span>/</span> Alamofire <span>/</span> 
                             Firebase <span>/</span> CoreData <span>/</span> Room <span>/</span> 
                             Realm <span>/</span> Coroutine <span>/</span> RxJava <span>/</span> 
@@ -199,45 +208,45 @@
                     </article>
                 </div>
             </div>
-            <div class="block__fulldevcycle-rightblock">
-                <div class="block__fulldevcycle-list">
-                    <article class="block__fulldevcycle-item">
+            <div class="full_dev_block-rightblock">
+                <div class="full_dev_block-list">
+                    <article class="full_dev_block-item">
                         <a href="#">iOS  development</a>
                         <svg width="24" height="24">
                             <use href="#arrow" style="color: #2d66ee;" alt="arrow-icon"></use>
                         </svg>
                     </article>
-                    <article class="block__fulldevcycle-item">
+                    <article class="full_dev_block-item">
                         <a href="#">Android development</a>
                         <svg width="24" height="24">
                             <use href="#arrow" style="color: #2d66ee;" alt="arrow-icon"></use>
                         </svg>
                     </article>
-                    <article class="block__fulldevcycle-item">
+                    <article class="full_dev_block-item">
                         <a href="#">Web development</a>
                         <svg width="24" height="24">
                             <use href="#arrow" style="color: #2d66ee;" alt="arrow-icon"></use>
                         </svg>
                     </article>
-                    <article class="block__fulldevcycle-item">
+                    <article class="full_dev_block-item">
                         <a href="#">UI/UX design</a>
                         <svg width="24" height="24">
                             <use href="#arrow" style="color: #2d66ee;" alt="arrow-icon"></use>
                         </svg>
                     </article>
-                    <article class="block__fulldevcycle-item">
+                    <article class="full_dev_block-item">
                         <a href="#">Testing</a>
                         <svg width="24" height="24">
                             <use href="#arrow" style="color: #2d66ee;" alt="arrow-icon"></use>
                         </svg>
                     </article>
-                    <article class="block__fulldevcycle-item">
+                    <article class="full_dev_block-item">
                         <a href="#">Launch</a>
                         <svg width="24" height="24">
                             <use href="#arrow" style="color: #2d66ee;" alt="arrow-icon"></use>
                         </svg>
                     </article>
-                    <article class="block__fulldevcycle-item">
+                    <article class="full_dev_block-item">
                         <a href="#">IT consulting</a>
                         <svg width="24" height="24">
                             <use href="#arrow" style="color: #2d66ee;" alt="arrow-icon"></use>
@@ -288,11 +297,11 @@
                         <a href="#" class="footer_contact-content">Leave a request</a>
                     </div>
                 </div>
-                <div class="footer_bottom">
+                <div class="footer_end">
                     <svg width="32" height="16">
                         <use href="#vector" style="color: #FFFFFF;" alt="vector-icon"></use>
                     </svg>
-                    <p class="footer_bottom-text">We work throughout world</p>
+                    <p class="footer_end-text">We work throughout world</p>
                 </div>
             </div>
         </footer>
