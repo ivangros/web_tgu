@@ -85,7 +85,7 @@ function init() {
             this.el.innerHTML = this.renderParent(this.data);
         };
 
-        this.renderParent = function (data) {
+        this.renderParent = function (data) { 
             let html = `
                 <div class="list-item" data-parent>
                     <div class="list-item__inner">
