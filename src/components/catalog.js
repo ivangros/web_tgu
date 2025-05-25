@@ -1,20 +1,20 @@
-export class Catalog {
-    #el = null
-    #paginationEl = null
-    #itemsEl = null
-    #page = null
-    #total = null
-    #renderItem = null
-    #getItems = null
+export class Post {
+    #el = null;
+    #paginationEl = null;
+    #itemsEl = null;
+    #page = null;
+    #total = null;
+    #renderItem = null;
+    #getItems = null;
 
     constructor(el, options) {
-        const { renderItem, getItems } = options
-        this.#el = el
-        this.#page = this.getPage()
-        this.#paginationEl = el.querySelector('[data-catalog-pagination]')
-        this.#itemsEl = el.querySelector('[data-catalog-items]')
-        this.#renderItem = renderItem
-        this.#getItems = getItems
+        const { renderItem, getItems } = options;
+        this.#el = el;
+        this.#page = this.getPage();
+        this.#paginationEl = el.querySelector('[data-posts-pagination]');
+        this.#itemsEl = el.querySelector('[data-posts-items]');
+        this.#renderItem = renderItem;
+        this.#getItems = getItems;
     }
 
     get limit () {
@@ -22,7 +22,7 @@ export class Catalog {
     }
 
     get pageCount () {
-        return Math.ceil(this.#total / this.limit)
+        return Math.ceil(this.#total / this.limit);
     }
 
     init () {
@@ -32,25 +32,25 @@ export class Catalog {
 
             if (page !== this.#page) {
                 this.setPage(page);
-                this.loadItems()
+                this.loadItems();
             }
-        }
+        };
 
         this.#paginationEl.addEventListener('click', (event) => {
-            const item = event.target.dataset.catalogPaginationPage ? event.target : event.target.closest('[data-catalog-pagination-page]')
+            const item = event.target.dataset.posts ? event.target : event.target.closest('[data-posts-pagination-page]');
 
             if (!item) {
                 return;
             }
 
-            const page = +item.dataset.catalogPaginationPage
+            const page = +item.dataset.postsPaginationPage;
 
             this.setPage(page);
             this.pushState();
-            this.loadItems()
-        })
+            this.loadItems();
+        });
 
-        this.loadItems()
+        this.loadItems();
     }
 
     getPage () {
@@ -61,55 +61,52 @@ export class Catalog {
     }
 
     setPage (page) {
-        this.#page = page
+        this.#page = page;
     }
 
     pushState () {
         const url = new URL(window.location.href);
         url.searchParams.set('page', this.#page);
 
-        window.history.pushState({}, '', url)
+        window.history.pushState({}, '', url);
     }
 
     loadItems () {
-        try {
-            this.#getItems({ limit: this.limit, page: this.#page })
-                .then(({ items, total }) => {
-                    this.#total = total
-                    this.renderItems(items)
-                    this.renderPagination()
-        })
-        } catch (error) {
-            console.log(error);
-        }
+        this.#getItems({ limit: this.limit, page: this.#page })
+            .then(({ items, total }) => {
+                this.#total = total;
+                this.renderItems(items);
+                this.renderPagination();
+            })
+            .catch((error) => {
+                console.error("Error loading items:", error);
+                this.#itemsEl.innerHTML = `<p>Failed to load posts: ${error.message}</p>`;
+            });
     }
 
     renderItems (items) {
-        this.#itemsEl.innerHTML = items.map(this.#renderItem).join('')
+        this.#itemsEl.innerHTML = items.map(this.#renderItem).join('');
     }
 
     renderPagination () {
-        let html = ''
+        let html = '';
 
         for (let index = 0; index < this.pageCount; index++) {
             const page = index + 1;
 
-            const classes = ['catalog__pagination-item']
+            const classes = ['posts__pagination-item'];
 
             if (page === this.#page) {
-                classes.push('catalog__pagination-item_active')
+                classes.push('posts__pagination-item_active');
             }
 
             html += `
-                <button
-                    class="${classes.join(' ')}"
-                    data-catalog-pagination-page="${page}"
-                >
+                <button class="${classes.join(' ')}" data-posts-pagination-page="${page}">
                     ${page}
                 </button>
-            `
+            `;
         }
 
-        this.#paginationEl.innerHTML = html
+        this.#paginationEl.innerHTML = html;
     }
 }

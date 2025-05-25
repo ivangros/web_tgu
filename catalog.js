@@ -1,64 +1,67 @@
-import { Catalog } from "./src/components/catalog.js"
+const getPostIdFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");
+};
 
-const renderPostItem = item => `
-    <a  
-        href="posts/${item.id}"
-        class="post-item"
-    >
-        <span class="post-item__title">
-            ${item.title}
-        </span>
+const displayPost = (post) => {
+    document.querySelector("[data-post-id]").textContent = `id: ${post.id}`;
+    document.querySelector("[data-post-userId]").textContent = `userId: ${post.userId}`;
+    document.querySelector("[data-post-title]").textContent = `title: ${post.title}`;
+    document.querySelector("[data-post-body]").textContent = `body: ${post.body}`;
+};
 
-        <span class="post-item__body">
-            ${item.body}
-        </span>
-    </a>
-`
+const displayError = (message) => {
+    document.body.innerHTML = `<h1>${message}</h1>`;
+};
 
-const getPostItems = ({ limit, page }) => {
-    return fetch(`https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`)
-        .then(async res => {
-            const total = +res.headers.get('x-total-count')
-            const items = await res.json()
-            return { items, total }
-        })
-}
+const loadPostDetails = async () => {
+    const postId = getPostIdFromUrl();
+    if (!postId) {
+        displayError("Post not found");
+        return;
+    }
 
-const renderPhotoItem = item => `
-    <a  
-        href="photos/${item.id}"
-        class="photo-item"
-    >
-        <span class="photo-item__title">
-            ${item.title}
-        </span>
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+        if (!response.ok) throw new Error("Failed to load post");
 
-        <img 
-            src=${item.url}
-            class="photo-item__image"
-        >
-    </a>
-`
+        const post = await response.json();
+        displayPost(post);
+        await loadComments(postId);
+    } catch (error) {
+        console.error("Post fetch error:", error);
+        displayError(`Error loading post: ${error.message}`);
+    }
+};
 
-const getPhotoItems = ({ limit, page }) => {
-    return fetch(`https://jsonplaceholder.typicode.com/photos?_limit=${limit}&_page=${page}`)
-        .then(async res => {
-            const total = +res.headers.get('x-total-count')
-            const items = await res.json()
-            return { items, total }
-        })
-}
+const loadComments = async (postId) => {
+    const commentsContainer = document.querySelector("[data-comments]");
 
-const init = () => {
-    const catalog = document.getElementById('catalog')
-    new Catalog(catalog, { 
-        renderItem: renderPostItem,
-        getItems: getPostItems
-     }).init()
-}
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
+        if (!response.ok) throw new Error("Failed to load comments");
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init)
-} else {
-    init()
-}
+        const comments = await response.json();
+
+        if (!comments.length) {
+            commentsContainer.innerHTML = "<p>No comments yet.</p>";
+            return;
+        }
+
+        commentsContainer.innerHTML = comments.map(comment => `
+            <div class="comment-item">
+                <div>postId: ${comment.postId}</div>
+                <div>id: ${comment.id}</div>
+                <div class="comment-item__name">name: ${comment.name}</div>
+                <div>body: ${comment.body}</div>
+                <div>email: ${comment.email}</div>
+            </div>
+        `).join("");
+
+    } catch (error) {
+        console.error("Comments fetch error:", error);
+        commentsContainer.innerHTML = `<h2>Failed to load comments: ${error.message}</h2>`;
+    }
+};
+
+document.addEventListener("DOMContentLoaded", loadPostDetails);
