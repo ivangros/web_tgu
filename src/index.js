@@ -19,12 +19,15 @@ class Pizza {
   addTopping(topping) {
     const toppingsList = {
       "Сливочная моцарелла": { name: "Сливочная моцарелла", price: 50, calories: 20 },
-      "Сырный борт": { name: "Сырный борт", price: (this.size === 'Маленькая' ? 150 : 300), 
+      "Сырный борт": { 
+        name: "Сырный борт", 
+        price: (this.size === 'Маленькая' ? 150 : 300), 
         calories: (this.size === 'Маленькая' ? 50 : 100) },
-      "Чедер и пармезан": { name: "Чедер и пармезан", price: (this.size === 'Маленькая' ? 150 : 300), 
+      "Чедер и пармезан": { 
+        name: "Чедер и пармезан", 
+        price: (this.size === 'Маленькая' ? 150 : 300), 
         calories: (this.size === 'Маленькая' ? 50 : 100) }
     };
-
 
     this.toppings.push(toppingsList[topping]);
   }
@@ -58,15 +61,85 @@ class Pizza {
   }
 }
 
-// пример
+document.addEventListener("DOMContentLoaded", () => {
+  let selectedPizza = "Баварская";
+  let selectedSize = "Большая";
+  let selectedToppings = [];
 
-let pizza = new Pizza("Баварская", "Большая");
-pizza.addTopping("Сырный борт");
-pizza.addTopping("Чедер и пармезан");
+  const defSize = document.querySelector(".pizza__size");
+  if (defSize) {
+      defSize.classList.add("pizza__size-active");
+  }
 
-console.log(`Тип пиццы: ${pizza.getType()}`);
-console.log(`Размер пиццы: ${pizza.getSize()}`);
-console.log(`Добавки: ${pizza.getToppings().join(", ")}`);
-console.log(`Цена пиццы: ${pizza.calculatePrice()} рублей`);
-console.log(`Калории пиццы: ${pizza.calculateCalories()} Ккал\n`);
+  const defPizza = [...document.querySelectorAll(".pizza__card")].find(card => 
+      card.querySelector(".pizza__name").textContent === "Баварская"
+  );
+  if (defPizza) {
+      defPizza.classList.add("pizza__card-active");
+  }
 
+  const button = document.querySelector(".order__button");
+
+  function updateButton() {
+      if (!selectedPizza) return;
+      const pizza = new Pizza(selectedPizza, selectedSize);
+      selectedToppings.forEach(topping => pizza.addTopping(topping));
+      button.textContent = `Добавить в корзину за ${pizza.calculatePrice()}₽ (${pizza.calculateCalories()} ккал)`;
+  }
+
+  function updateToppingPrices() {
+    const toppingPriceMap = {
+      "Сливочная моцарелла": 50,
+      "Сырный борт": selectedSize === "Маленькая" ? 150 : 300,
+      "Чедер и пармезан": selectedSize === "Маленькая" ? 150 : 300
+    };
+
+    document.querySelectorAll(".topping__card").forEach(card => {
+      const nameEl = card.querySelector(".topping__name");
+      const costEl = card.querySelector(".topping__сost");
+      const name = nameEl?.textContent.trim();
+
+      if (name && toppingPriceMap[name] !== undefined && costEl) {
+        costEl.textContent = `${toppingPriceMap[name]}₽`;
+      }
+    });
+  }
+
+  document.querySelectorAll(".pizza__card").forEach(card => {
+      card.addEventListener("click", () => {
+          document.querySelectorAll(".pizza__card").forEach(c => c.classList.remove("pizza__card-active"));
+          card.classList.add("pizza__card-active");
+          selectedPizza = card.querySelector(".pizza__name").textContent;
+          updateButton();
+      });
+  });
+
+  document.querySelectorAll(".pizza__size").forEach(size => {
+      size.addEventListener("click", () => {
+          document.querySelectorAll(".pizza__size").forEach(s => s.classList.remove("pizza__size-active"));
+          size.classList.add("pizza__size-active");
+          selectedSize = size.textContent;
+          updateToppingPrices();
+          updateButton();
+      });
+  });
+
+  document.querySelectorAll(".topping__card").forEach(topping => {
+      topping.addEventListener("click", () => {
+          const toppingName = topping.querySelector(".topping__name").textContent.trim();
+          
+          if (selectedToppings.includes(toppingName)) {
+              selectedToppings = selectedToppings.filter(t => t !== toppingName);
+              topping.classList.remove("topping__card-active");
+          } else {
+              selectedToppings.push(toppingName);
+              topping.classList.add("topping__card-active");
+          }
+          
+          updateButton();
+      });
+  });
+
+  updateToppingPrices();
+  updateButton();
+});
